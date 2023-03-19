@@ -1,0 +1,103 @@
+h1 {
+    display:flex;
+    justify-content: center;
+}
+
+body{
+    background: linear-gradient(rgb(112, 114, 236),rgb(187, 194, 204));
+}
+
+#contenedorMenu{
+   text-align: center;
+}
+
+#contenedorNavegacion{
+    display:flex;
+    justify-content: center;
+}
+
+#contenedorTitulo{
+    display:flex;
+    justify-content: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+nav button{
+    padding: 1%;
+    width:100%;
+    text-align: center;
+    border-radius: 20px;
+    border-width: 0;
+    background: linear-gradient(rgb(187, 194, 204),rgb(112, 114, 236));
+}
+
+nav button:hover{
+    background : rgb(156, 158, 238);
+}
+
+#contenedorVideojuego {
+    display: flex;
+    height: 1080px;
+    justify-content: center;
+}
+
+#pantallaVideojuego * {
+    cursor: url("../images/jeringa.png"), auto;
+}
+
+#pantallaVideojuego {
+    width: 90%;
+    height: 70%;
+    background: #161616;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    cursor: url("../images/jeringaXL.png"), auto;
+}
+
+
+.contenedorCovid {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transition: all  linear; /* add a linear transition for all properties */
+    border-radius: 50%;
+    margin-top:15%;
+}
+
+.contenedorCovid button{
+    background-color: rgba(255, 0, 0, 0);
+    width: fit-content;
+    height: fit-content;
+    border-width: 0;
+    box-shadow:0 0 100px #cf322d;
+    border-radius: 50%;
+}
+
+.contenedorCovid button:hover{
+    box-shadow:0 0 100px #c4cf2d;
+    transform: scale(1.2);
+}
+
+#startButton{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top:15%;
+    background-color: rgba(4, 201, 4, 0.185);
+    border-width: 0;
+    color: rgb(153, 139, 139);
+}
+
+#startButton:hover {
+    scale:110%;
+    background-color: rgba(4, 201, 4, 0.425);
+    color: rgb(255, 255, 255);
+    font-size: large;
+    box-shadow:0 0 100px #2dcf5e;
+}

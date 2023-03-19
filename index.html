@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' media='screen and (max-width: 900px)' href='css/phoneVersion.css' />
+    <link rel='stylesheet' media='screen and (min-width: 901px)' href='css/pcVersion.css' />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <title>Videojuego</title>
+</head>
+
+<body>
+    <div id="contenedorMenu">
+        <div id="contenedorTitulo">
+            <h1>Videojuego de Eugen</h1>
+        </div>
+        <div id="contenedorNavegacion">
+            <nav>
+                <button onclick="restartGame()">Volver a empezar</button>
+                <button onclick="">Opciones</button>
+            </nav>
+        </div>
+    </div>
+    <div id="contenedorVideojuego">
+        <div id="pantallaVideojuego">
+            
+            <button id="startButton" onclick="startGame('5')">START</button>
+           
+        </div>
+    </div>
+</body>
+<script src="js/main.js"></script>
+
+</html>
