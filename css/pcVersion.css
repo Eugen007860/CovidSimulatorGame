@@ -1,48 +1,55 @@
 h1 {
-    display:flex;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: underline;
+    ;
+}
+
+body {
+    background: linear-gradient(rgb(112, 114, 236), rgb(187, 194, 204));
+    margin: auto;
+}
+
+#contenedorMenu {
+    text-align: center;
+}
+
+#contenedorNavegacion {
+    display: flex;
     justify-content: center;
 }
 
-body{
-    background: linear-gradient(rgb(112, 114, 236),rgb(187, 194, 204));
-}
-
-#contenedorMenu{
-   text-align: center;
-}
-
-#contenedorNavegacion{
-    display:flex;
+#contenedorTitulo {
+    display: flex;
     justify-content: center;
 }
 
-#contenedorTitulo{
-    display:flex;
-    justify-content: center;
-}
-
-nav{
+nav {
     display: flex;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
+    background-color: rgb(54, 53, 53);
+    padding: 0.5%;
+    margin-bottom: 5px;
 }
 
-nav button{
-    padding: 1%;
-    width:100%;
-    text-align: center;
-    border-radius: 20px;
-    border-width: 0;
-    background: linear-gradient(rgb(187, 194, 204),rgb(112, 114, 236));
+nav button {
+    border: none;
+    background-color: rgba(0, 255, 255, 0);
+    color: cyan;
+    font-size: large;
+    padding-inline: 10%;
+    padding-block: 3px;
 }
 
-nav button:hover{
-    background : rgb(156, 158, 238);
+nav button:hover {
+    background: rgb(31, 31, 31);
+    border-bottom: solid 1px cyan;
 }
 
 #contenedorVideojuego {
     display: flex;
-    height: 1080px;
     justify-content: center;
 }
 
@@ -54,50 +61,83 @@ nav button:hover{
     width: 90%;
     height: 70%;
     background: #161616;
-    display: flex;
+    display: grid;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 10px;
     cursor: url("../images/jeringaXL.png"), auto;
+    height: 800px;
+    overflow: hidden;
 }
 
+#contenedorBolaDiscoteca {
+    display: flex;
+    justify-content: center;
+    width: 100;
+}
+
+#contenedorBolaDiscoteca img {
+    height: fit-content;
+}
 
 .contenedorCovid {
     width: 50px;
     height: 50px;
     position: absolute;
-    transition: all  linear; /* add a linear transition for all properties */
+    transition: all linear 0.01s;
+    /* add a linear transition for all properties */
     border-radius: 50%;
-    margin-top:15%;
+    margin-top: 15%;
 }
 
-.contenedorCovid button{
+.contenedorCovid button {
     background-color: rgba(255, 0, 0, 0);
     width: fit-content;
     height: fit-content;
     border-width: 0;
-    box-shadow:0 0 100px #cf322d;
+    box-shadow: 0 0 100px #cf322d;
     border-radius: 50%;
 }
 
-.contenedorCovid button:hover{
-    box-shadow:0 0 100px #c4cf2d;
+.contenedorCovid button:hover {
+    box-shadow: 0 0 100px #c4cf2d;
     transform: scale(1.2);
 }
 
-#startButton{
+#startButton {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin-top:15%;
+    margin-top: 15%;
     background-color: rgba(4, 201, 4, 0.185);
     border-width: 0;
     color: rgb(153, 139, 139);
 }
 
 #startButton:hover {
-    scale:110%;
+    scale: 110%;
     background-color: rgba(4, 201, 4, 0.425);
     color: rgb(255, 255, 255);
     font-size: large;
-    box-shadow:0 0 100px #2dcf5e;
+    box-shadow: 0 0 100px #2dcf5e;
+}
+
+.miProyectil {
+    position: absolute;
+    animation: rotation 1s infinite linear;
+}
+
+footer {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 1%;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
 }
