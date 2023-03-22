@@ -3,10 +3,11 @@ h1 {
     justify-content: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: underline;
+    color: cyan;
 }
 
 body {
-    background: linear-gradient(rgb(112, 114, 236), rgb(187, 194, 204));
+    background: linear-gradient(rgb(78, 78, 78), rgb(1, 149, 175));
     margin: auto;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -68,9 +69,9 @@ nav button:hover {
     justify-content: center;
     border-radius: 10px;
     cursor: url("../images/jeringa.png"), auto;
-    height: 800px;
+    height: 80vh;
     overflow: hidden;
-    padding-top: 2%;
+    padding-top: 1%;
 }
 
 #contenedorBolaDiscoteca {
@@ -127,6 +128,7 @@ nav button:hover {
     color: rgb(255, 255, 255);
     font-size: large;
     box-shadow: 0 0 100px #2dcf5e;
+    animation: increaseEffect 1s infinite alternate;
 }
 
 .miProyectil {
@@ -161,6 +163,21 @@ footer {
     margin-bottom: 1%;
 }
 
+#altavozDerecho{
+    position: absolute;
+    margin-left:83%;
+    margin-top:62vh; 
+    animation: increaseEffect 2s infinite alternate;
+}
+
+#altavozIzquierdo{
+    position: absolute;
+    margin-left: 0;
+    margin-left: 1%;
+    margin-top:62vh; 
+    animation: increaseEffect 2s infinite alternate;
+}
+
 @keyframes rotation {
     from {
         transform: rotate(0deg);
@@ -168,5 +185,16 @@ footer {
 
     to {
         transform: rotate(359deg);
+    }
+}
+
+
+@keyframes increaseEffect {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
     }
 }

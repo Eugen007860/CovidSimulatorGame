@@ -86,15 +86,15 @@ function crearProyectil() {
 
     proyectil.src = "images/jeringa.png";
     contenedorProyectil.className = "miProyectil";
-    contenedorProyectil.style.top = rect.top + "px";
-    contenedorProyectil.style.left = rect.left + "px";
+    contenedorProyectil.style.top = ((rect.bottom + rect.top) / 2) + "px";
+    contenedorProyectil.style.left = ((rect.left + rect.right) / 2) + "px";
     contenedorProyectil.setAttribute("hidden", true);
 
     contenedorProyectil.appendChild(proyectil);
     pantallaJuego.appendChild(contenedorProyectil);
 
     detectarColisionJeringa(contenedorProyectil);
-    idDetectorColisiones = setInterval(detectarColisionJeringa, 100,contenedorProyectil);
+    idDetectorColisiones = setInterval(detectarColisionJeringa, 100, contenedorProyectil);
 
     return contenedorProyectil;
 }
@@ -113,9 +113,9 @@ function lanzarProyectil(e) {
     var angle = Math.atan2(dy, dx);
 
     // Mover el contenedor en la dirección del ángulo utilizando TweenLite
-    TweenLite.to(contenedorProyectil, 2, {
-        left: "+=" + Math.cos(angle) * 1000,
-        top: "+=" + Math.sin(angle) * 1000,
+    TweenLite.to(contenedorProyectil, 2.5, {
+        left: "+=" + Math.cos(angle) * 2000,
+        top: "+=" + Math.sin(angle) * 2000,
         ease: Linear.easeNone
     });
 }
@@ -174,6 +174,7 @@ function finalizarPartida() {
     if (document.getElementById('contenedorVictoria')) {
         document.getElementById('contenedorVictoria').remove();
     }
+    document.removeEventListener('click', lanzarProyectil, true);
     clearInterval(idDetectorColisiones);
     clearInterval(idGeneradorCovid);
     clearInterval(idComprobacionVictoria);
@@ -194,30 +195,30 @@ function crearMensajeVictoria() {
 function isInside(el1, el2) {
     const rect1 = el1.getBoundingClientRect();
     const rect2 = el2.getBoundingClientRect();
-  
-    return (
-      rect1.top >= rect2.top &&
-      rect1.left >= rect2.left &&
-      rect1.bottom <= rect2.bottom &&
-      rect1.right <= rect2.right
-    );
-  }
 
-function eliminarJeringas(){
+    return (
+        rect1.top >= rect2.top &&
+        rect1.left >= rect2.left &&
+        rect1.bottom <= rect2.bottom &&
+        rect1.right <= rect2.right
+    );
+}
+
+function eliminarJeringas() {
     const jeringas = document.querySelectorAll(".miProyectil");
     var pantallaJuego = document.getElementById("pantallaVideojuego");
     jeringas.forEach(jeringa => {
-        if(!isInside(jeringa, pantallaJuego)){
+        if (!isInside(jeringa, pantallaJuego)) {
+            console.log("Esta esta fuera");
             jeringa.remove();
         }
     })
 }
 
-
 function startGame(enemigos) {
 
     spawnCovid();
-    idGeneradorCovid = setInterval(spawnCovid, 1000);
+    idGeneradorCovid = setInterval(spawnCovid, 1500);
 
     botonStart = document.getElementById("startButton");
     botonStart.setAttribute("hidden", true);
@@ -230,5 +231,5 @@ function startGame(enemigos) {
     idComprobacionVictoria = setInterval(comprobarVictoria, 100);
 
     eliminarJeringas();
-    idEliminadorJeringas = setInterval(eliminarJeringas,100);
+    idEliminadorJeringas = setInterval(eliminarJeringas, 100);
 }
