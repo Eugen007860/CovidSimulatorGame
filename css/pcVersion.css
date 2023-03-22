@@ -3,12 +3,15 @@ h1 {
     justify-content: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: underline;
-    ;
 }
 
 body {
     background: linear-gradient(rgb(112, 114, 236), rgb(187, 194, 204));
     margin: auto;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
 }
 
 #contenedorMenu {
@@ -64,15 +67,20 @@ nav button:hover {
     display: grid;
     justify-content: center;
     border-radius: 10px;
-    cursor: url("../images/jeringaXL.png"), auto;
+    cursor: url("../images/jeringa.png"), auto;
     height: 800px;
     overflow: hidden;
+    padding-top: 2%;
 }
 
 #contenedorBolaDiscoteca {
     display: flex;
+    width: fit-content;
+    height: fit-content;
+    transform-origin: top center;
+    margin-left: 40%;
+    align-items: center;
     justify-content: center;
-    width: 100;
 }
 
 #contenedorBolaDiscoteca img {
@@ -123,7 +131,28 @@ nav button:hover {
 
 .miProyectil {
     position: absolute;
+    ;
     animation: rotation 1s infinite linear;
+}
+
+#mensajeVictoria {
+    color: rgb(0, 255, 64);
+    font-size: xx-large;
+    text-decoration: underline;
+    border: solid 1px;
+
+}
+
+#contenedorVictoria {
+    border-top: solid 1px rgb(0, 255, 64);
+    height: fit-content;
+    border-bottom: solid 1px rgb(0, 255, 64);
+}
+
+#mensajeVictoria {
+    color: rgb(0, 255, 64);
+    font-size: xx-large;
+    border: none;
 }
 
 footer {
