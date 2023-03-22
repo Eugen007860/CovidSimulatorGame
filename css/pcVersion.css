@@ -64,7 +64,7 @@ nav button:hover {
 #pantallaVideojuego {
     width: 90%;
     height: 70%;
-    background: #161616;
+    background: #000000;
     display: grid;
     justify-content: center;
     border-radius: 10px;
