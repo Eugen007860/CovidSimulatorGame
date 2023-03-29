@@ -21,11 +21,6 @@ function eliminarCovid() {
     this.remove();
 }
 
-function eliminarAlClicarCovid(covid) {
-    covid.addEventListener("click", () => {
-        covid.remove();
-    });
-}
 
 function generarPosicionAleatoria(elemento, contenedor) {
     var mainWidth = contenedor.clientWidth;
@@ -61,7 +56,6 @@ function crearCovid() {
     dotarMovimientoCovid(covidDiv, pantallaJuego);
     retardoRespawn = Math.floor(Math.random() * (4000 - 1000 + 1) + 1000);
     setInterval(dotarMovimientoCovid, retardoRespawn, covidDiv, pantallaJuego);
-    eliminarAlClicarCovid(covidDiv);
     return covidDiv;
 }
 
@@ -217,6 +211,7 @@ function eliminarJeringas() {
 
 function startGame(enemigos) {
 
+    crearCovid();
     spawnCovid();
     idGeneradorCovid = setInterval(spawnCovid, 1500);
 
