@@ -1,7 +1,9 @@
 var idGeneradorCovid;
 var idDetectorColisiones;
 var idComprobacionVictoria;
-var idEliminadorJeringas
+var idEliminadorJeringas;
+var cantidadEnemigos = 0; 
+var idComprobarEnemigos;
 
 function establecerImagenCovid() {
     const images = document.querySelectorAll(".covidImage");
@@ -56,14 +58,18 @@ function crearCovid() {
     dotarMovimientoCovid(covidDiv, pantallaJuego);
     retardoRespawn = Math.floor(Math.random() * (4000 - 1000 + 1) + 1000);
     setInterval(dotarMovimientoCovid, retardoRespawn, covidDiv, pantallaJuego);
+    cantidadEnemigos += 1;
     return covidDiv;
 }
 
 function restartGame() {
+    var marcador = document.getElementById("marcador");
     var covidContainer = document.querySelectorAll('.contenedorCovid');
     for (var i = 0; i < covidContainer.length; i++) {
         covidContainer[i].remove();
     }
+    if (marcador)
+        marcador.remove();
     finalizarPartida();
 
     botonStart = document.getElementById("startButton");
@@ -137,6 +143,7 @@ function detectarColisionJeringa(proyectil) {
     for (var i = 0; i < covidContainer.length; i++) {
         if (estanColisinando(proyectil, covidContainer[i])) {
             covidContainer[i].remove();
+            cantidadEnemigos -= 1;
         }
     }
 }
@@ -173,6 +180,8 @@ function finalizarPartida() {
     clearInterval(idGeneradorCovid);
     clearInterval(idComprobacionVictoria);
     clearInterval(idEliminadorJeringas);
+    clearInterval(idComprobarEnemigos);
+    cantidadEnemigos = 0;
 }
 
 function crearMensajeVictoria() {
@@ -203,17 +212,34 @@ function eliminarJeringas() {
     var pantallaJuego = document.getElementById("pantallaVideojuego");
     jeringas.forEach(jeringa => {
         if (!isInside(jeringa, pantallaJuego)) {
-            console.log("Esta esta fuera");
             jeringa.remove();
         }
     })
+}
+
+function comprobarCantidadEnemeigos(marcador){
+    marcador.innerHTML = cantidadEnemigos +" / 15";
+    if (cantidadEnemigos >= 15){
+        restartGame();
+    }
 }
 
 function startGame(enemigos) {
 
     crearCovid();
     spawnCovid();
-    idGeneradorCovid = setInterval(spawnCovid, 1500);
+
+    let dificultad = document.getElementById('dificultad');
+    
+    if (dificultad.selectedIndex == 0){
+        idGeneradorCovid = setInterval(spawnCovid, 3000);
+    }
+    else if (dificultad.selectedIndex == 1){
+        idGeneradorCovid = setInterval(spawnCovid, 2000);
+    }
+    else{
+        idGeneradorCovid = setInterval(spawnCovid, 1000);
+    }
 
     botonStart = document.getElementById("startButton");
     botonStart.setAttribute("hidden", true);
@@ -227,4 +253,11 @@ function startGame(enemigos) {
 
     eliminarJeringas();
     idEliminadorJeringas = setInterval(eliminarJeringas, 100);
+
+    pantallaJuego = document.getElementById("pantallaVideojuego");
+    marcador = document.createElement("div");
+    marcador.id = "marcador";
+    pantallaJuego.appendChild(marcador);
+    comprobarCantidadEnemeigos(marcador);
+    idComprobarEnemigos = setInterval(comprobarCantidadEnemeigos, 100, marcador);
 }

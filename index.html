@@ -18,7 +18,11 @@
         <div id="contenedorNavegacion">
             <nav>
                 <button onclick="restartGame()">Volver a empezar</button>
-                <button onclick="">Dificultad</button>
+                <select name="dificultad" id="dificultad">
+                    <option value="facil">Facil</option>
+                    <option value="normal">Normal</option>
+                    <option value="tryhard">Tryhard</option>
+                </select>
             </nav>
         </div>
     </div>
@@ -27,9 +31,9 @@
             <div id="contenedorBolaDiscoteca">
                 <img src="images/bolaDiscoteca.png">
             </div>
-            <button id="startButton" onclick="startGame('5')">START</button>
-            <img id = "altavozDerecho" src="images/altavoz.png" alt="">
-            <img id = "altavozIzquierdo" src="images/altavozIzquierdo.png" alt="">
+            <button id="startButton" onclick="startGame()">START</button>
+            <img id="altavozDerecho" src="images/altavoz.png" alt="">
+            <img id="altavozIzquierdo" src="images/altavozIzquierdo.png" alt="">
         </div>
     </div>
     <footer>
